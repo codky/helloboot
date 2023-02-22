@@ -1,13 +1,15 @@
 package tobyspring.helloboot;
 
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Objects;
 
-
-@RequestMapping("/hello")
+@RestController
 public class HelloController {
 
     private final HelloService helloService;
@@ -16,8 +18,7 @@ public class HelloController {
         this.helloService = helloService;
     }
 
-    @GetMapping// 예전에는 @RequestMapping
-    @ResponseBody // @RestController 를 위에 붙였다면 모든 메소드에 @ResponseBody가 붙었다고 가정한다.
+    @GetMapping("/hello")// 예전에는 @RequestMapping
     public String hello(String name) {
         return helloService.sayHello(Objects.requireNonNull(name));
     }
