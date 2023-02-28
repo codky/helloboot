@@ -17,5 +17,5 @@ import java.lang.annotation.Target;
 @Configuration
 @ComponentScan
 @EnableMyAutoConfiguration
-public @interface MySpringBootAnnotation {
+public @interface MySpringBootApplication {
 }
